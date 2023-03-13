@@ -13,14 +13,15 @@ import { FetchContext } from "./lib/fetchDataCache";
 export default function App() {
   const { theme, toggle } = useContext(ThemeContext);
 
-  const { addItem, getResultsForUrl, cache } = useContext(FetchContext);
-  console.log("current cache:", cache);
-  console.log("has item?:", getResultsForUrl("http://ab.cd"));
+  ///testing for caching
+  // const { addItem, getResultsForUrl, cache } = useContext(FetchContext);
+  // console.log("current cache:", cache);
+  // console.log("has item?:", getResultsForUrl("http://ab.cd"));
 
-  // just attach this to any random element in the page for now ;)
-  const onClickWhatever = () => {
-    addItem("http://ab.cd", { answer: 42 });
-  };
+  // // just attach this to any random element in the page for now ;)
+  // const onClickWhatever = () => {
+  //   addItem("http://ab.cd", { answer: 42 });
+  // };
 
   return (
     <div>
