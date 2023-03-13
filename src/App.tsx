@@ -1,17 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AppBar, Toolbar, IconButton, Button } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
+import SunnyIcon from "@mui/icons-material/WbSunny";
 import { Routes, Route, Link as RouterLink } from "react-router-dom";
 
 import HomePage from "./pages/home/HomePage";
 import SignupPage from "./pages/auth/SignupPage";
 import LoginPage from "./pages/auth/LoginPage";
+import { ThemeContext } from "./lib/theme";
+import { FetchContext } from "./lib/fetchDataCache";
 
 export default function App() {
+  const { theme, toggle } = useContext(ThemeContext);
+
+  const { addItem, getResultsForUrl, cache } = useContext(FetchContext);
+  console.log("current cache:", cache);
+  console.log("has item?:", getResultsForUrl("http://ab.cd"));
+
+  // just attach this to any random element in the page for now ;)
+  const onClickWhatever = () => {
+    addItem("http://ab.cd", { answer: 42 });
+  };
+
   return (
     <div>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar style={{ color: theme.colors.toolbarBackgroundColor }}>
+          <IconButton
+            onClick={toggle}
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+          >
+            <SunnyIcon />
+          </IconButton>
           <IconButton
             component={RouterLink}
             to="/"
