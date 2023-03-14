@@ -6,6 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "./lib/theme";
 import { FetchDataCacheProvider } from "./lib/fetchDataCache";
+import Provider from "react-redux/es/components/Provider";
+import { store } from "./store";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -14,9 +16,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider>
-        <FetchDataCacheProvider>
-          <App />
-        </FetchDataCacheProvider>
+        <Provider store={store}>
+          <FetchDataCacheProvider>
+            <App />
+          </FetchDataCacheProvider>
+        </Provider>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
