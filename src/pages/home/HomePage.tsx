@@ -7,24 +7,21 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
-import axios from "axios";
+
 import { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Dispatch } from "redux";
-// import FetchData from "../../components/FetchData";
-import { PostsResponse } from "../../lib/model";
+
 import { ThemeContext } from "../../lib/theme";
-// import withFetchData from "../../lib/withFetchData";
-// import { FetchState } from "../../util/fetchstate";
 
-import useFetchData from "../../lib/useFetchData";
 import { fetchDataFromTag } from "../../store/homepage/actions";
+import { selectHomepageFeed } from "../../store/homepageFeed/selectors";
 
-import { Action, AppDispatch, State } from "../../store/types";
+import { AppDispatch } from "../../store/types";
 
-const selectHomepageFeed = (reduxState: State) => {
-  return reduxState.homepageFeed;
-};
+//this is replaced by a selector
+// const selectHomepageFeed = (reduxState: State) => {
+//   return reduxState.homepageFeed;
+// };
 
 export default function HomePage() {
   const state = useSelector(selectHomepageFeed);

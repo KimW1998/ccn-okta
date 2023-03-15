@@ -1,17 +1,14 @@
 import { ThunkAction, ThunkDispatch } from "redux-thunk";
 import { Post, PostsResponse } from "../lib/model";
-import { FetchState } from "../util/fetchstate";
 
-export type User = {
-  id: number;
-  name: string;
-  email: string;
-};
+import { AuthState, User } from "./auth/reducer";
+import { DarkModeState } from "./darkMode/reducer";
+import { HomepageFeedState } from "./homepageFeed/reducer";
 
 export type State = {
-  user?: User | null;
-  token?: string;
-  homepageFeed: FetchState<PostsResponse>;
+  auth: AuthState;
+  darkMode: DarkModeState;
+  homepageFeed: HomepageFeedState;
 };
 
 export type Action =
@@ -39,6 +36,9 @@ export type Action =
   | {
       type: "homepage_feed_error";
       payload: any;
+    }
+  | {
+      type: "toggle_dark_mode";
     };
 
 // Although this type is often called ThunkResult, it's what

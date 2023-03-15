@@ -8,3 +8,5 @@ const devToolsEnhancer = (window as any).__REDUX_DEVTOOLS_EXTENSION__
 const enhancer = compose(applyMiddleware(ReduxThunk), devToolsEnhancer);
 
 export const store = createStore(reducer, enhancer);
+
+//this is the sore

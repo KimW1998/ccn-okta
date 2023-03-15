@@ -12,10 +12,12 @@ import { FetchContext } from "./lib/fetchDataCache";
 import { Action, State } from "./store/types";
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "redux";
+import { showUser } from "./store/auth/selectors";
 
-const showUser = (reduxState: State) => {
-  return reduxState.user;
-};
+//this is replaced by the selectors
+// const showUser = (reduxState: State) => {
+//   return reduxState.user;
+// };
 
 export default function App() {
   const { theme, toggle } = useContext(ThemeContext);
